@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="binary-tree-node">
+
+  {% if node.left_child %}
+    <div class="node-left">
+      {% include 'binary_tree_node.html' with node=node.left_child %}
+    </div>
+  {% endif %}
+{% if node.right_child %}
+    <div class="node-right">
+      {% include 'binary_tree_node.html' with node=node.right_child %}
+    </div>
+  {% endif %}
+</div></body>
+</html>

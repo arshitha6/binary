@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-color:Pink;">
+  <h1>Binary Tree</h1>
+  <div class="binary-tree">
+    {% if root_node %}
+       
+    {% else %}
+      <p>No nodes in the binary tree.</p>
+    {% endif %}
+  </div>
+  <hr>
+  <h2>Add Node</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add</button>
+  </form>
+  <hr>
+  <h2>Search Node</h2>
+  <form method="get">
+    <label for="search">Search by Node ID:</label>
+    <input type="number" name="search" id="search">
+    <button type="submit">Search</button>
+  </form>
+  {% if search_node %}
+    <hr>
+    <h2>Search Results</h2>
+    <p>Name: {{ search_node.name }}</p>
+    <p>ID: {{ search_node.node_id }}</p>
+    <p>Parent ID: {{ search_node.parent}}</p>
+  {% endif %}
+</body>
+</html>
